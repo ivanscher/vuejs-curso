@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 1</title>
+</head>
+<body>
+    <main id="app">
+        <h1>{{ titulo }}</h1>
+        <input type="text" v-model="titulo">
+    </main>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                titulo: "Hello World"
+            }
+        });
+    </script>
+</body>
+</html>
