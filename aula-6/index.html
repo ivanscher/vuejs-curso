@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 1</title>
+
+    <style>
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+    <img v-bind:src="imagem" alt="{{ titulo }}">
+    <img v-bind:src="imagem" v-bind:alt="titulo">
+    <img v-bind:src="'https://vuejs.org/images/logo.png'" v-bind:alt="'Hello World'">
+
+    <p v-bind:class="htmlclass">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio nulla optio perferendis praesentium quaerat? Earum facere illum sit voluptate. Aspernatur culpa cupiditate enim omnis vel. Consequuntur dolores ipsum minima suscipit.</p>
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "Hello World"
+            ,imagem: "https://vuejs.org/images/logo.png"
+            ,htmlclass: 'red'
+        }
+    });
+</script>
+</body>
+</html>
