@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+
+    <button type="submit" class="btn btn-primary" v-on:click="enviar">Enviar</button>
+
+    <hr>
+    <form action="https://google.com">
+        <fieldset>
+            <label for="">Formulario v-on click e action do form</label>
+            <button type="submit" class="btn btn-primary" v-on:click="enviar">Enviar</button>
+        </fieldset>
+    </form>
+
+
+    <hr>
+    <form action="https://google.com">
+        <fieldset>
+            <label>Formulario com prevent stop</label>
+            <button type="submit" class="btn btn-primary" @click.prevent.stop="enviar">Enviar</button>
+        </fieldset>
+    </form>
+
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "Vuejs"
+        },
+        methods: {
+            enviar(){
+                alert('Enviado!')
+            }
+        }
+    });
+</script>
+</body>
+</html>
