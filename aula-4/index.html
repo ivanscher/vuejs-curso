@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 4</title>
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+
+    <ul>
+        <li v-for="item in linguagens">{{item.nome}}</li>
+    </ul>
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "V For",
+            linguagens: [
+                {nome: "javascript"},
+                {nome: "php"},
+                {nome: "python"},
+                {nome: "go"},
+                {nome: "ruby"},
+                {nome: "java"},
+                {nome: "C#"},
+            ]
+        }
+    });
+</script>
+</body>
+</html>
