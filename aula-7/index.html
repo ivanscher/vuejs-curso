@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 7</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+    <button class="btn" v-bind:class="btnClassLimpar">Limpar</button>
+    <button class="btn" v-bind:class="btnClassEnviar">Enviar</button>
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "Vuejs"
+            , btnClassLimpar:{
+                'btn-danger':true
+                ,'btn-sm':false
+            }
+            , btnClassEnviar: 'btn-primary btn-lg'
+        }
+    });
+</script>
+</body>
+</html>
