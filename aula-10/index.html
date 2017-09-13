@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+    <p>{{nome}}</p>
+    <p>{{maiusculas}}</p>
+
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "Vuejs",
+            nome: 'Jonh snow'
+        },
+        computed:{
+            maiusculas(){
+                return this.nome.toUpperCase();
+            }
+        },
+        watch:{
+            nome(newValue, oldValue){
+              console.log(newValue);
+              console.log(oldValue);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+
+    <form>
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+    </form>
+    <p>{{fullName}}</p>
+
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            titulo: "Vuejs",
+            firstName: "",
+            lastName: ""
+        },
+        computed:{
+            fullName(){
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+    });
+</script>
+</body>
+</html>
