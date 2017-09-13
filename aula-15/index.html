@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+<main id="app" class="container">
+    <input-form></input-form>
+    <br/>
+    <list-group></list-group>
+</main>
+
+
+<template id="form">
+    <div class="card">
+        <div class="input-group">
+            <label>Item</label>
+            <input type="text" class="form-control" v-model="title">
+        </div>
+        <button class="btn btn-primary"
+        @click.stop.prevent="submit()">Adicionar</button>
+    </div>
+</template>
+<template id="list">
+    <div class="list-group">
+
+        <button type="button" class="list-group-item list-group-item-action"
+        v-for="item in list">{{item.title}}</button>
+    </div>
+</template>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.component('input-form',{
+       template: "#form",
+        data(){
+          return{
+              title: ''
+          }
+        },
+        methods:{
+           submit(){
+               //eventBus.$emit('submit', this.title);
+               this.$eventHub.$emit('submit', this.title);
+           }
+        }
+    });
+    Vue.component('list-group',{
+        template: "#list",
+        data(){
+            return {
+                list: [
+                    {title: 'Ovos'},
+                    {title: 'Leite'},
+                ]
+            }
+        },
+        created(){
+            //eventBus.$on('submit', (titulo)=>{
+            this.$eventHub.$on('submit', (titulo)=>{
+                if(titulo)
+                    this.list.push({title:titulo});
+            });
+        }
+    });
+    //var eventBus = new Vue()
+    Vue.prototype.$eventHub = new Vue();
+    var app = new Vue({
+        el:"#app",
+
+        data:{
+            titulo: "Vuejs"
+        },
+
+
+    });
+</script>
+</body>
+</html>
