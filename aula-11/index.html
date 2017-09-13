@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS do Jeito Ninja - Aula 8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<main id="app">
+    <h1>{{ titulo }}</h1>
+
+</main>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        beforeCreate(){
+
+            console.log('beforeCreate');
+            console.log('tituo', this.titulo);
+            console.log('el', this.$el);
+
+        },
+        data:{
+            titulo: "Vuejs",
+            firstName: "",
+            lastName: ""
+        },
+        created(){
+            console.log('created: aqui já acessa as variaveis');
+            console.log('tituo', this.titulo);
+            console.log('el', this.$el);
+        },
+        beforeMount(){
+            console.log('beforeMount: antes de montar o component');
+            console.log('tituo', this.titulo);
+            console.log('el', this.$el);
+        },
+        mounted(){
+            console.log('mounted: acesso ao DOM');
+            console.log('tituo', this.titulo);
+            console.log('el', this.$el);
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate: antes de atualizar o dom');
+        },
+        updated(){
+            console.log('updated: dom atualizado');
+        },
+        beforeDestroy(){
+            console.log('beforeMount: antes de destruir o component, derruba os watch, eventos, etc');
+        },
+        destroyed(){
+            console.log("detroi o component")
+        },
+
+    });
+</script>
+</body>
+</html>
